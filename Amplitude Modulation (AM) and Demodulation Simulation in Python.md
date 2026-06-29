@@ -54,7 +54,11 @@ Demodulation is the process of extracting the original message from the modulate
         demodulated_signal = envelope_detector*np.cos(2*np.pi*message_freq*message_time + message_phase)
 
 ⚠️ Note on Output: In a perfect hardware/software implementation, a Low-Pass Filter (LPF) is required right after this step to smooth out the high-frequency ripples and isolate the pure $2\text{ Hz}$ message 
-wave.Step 6: Plotting the ResultsFinally, the script overlays the modulated waveform and the resulting demodulated waveform on a single graph to visually evaluate the system.
+wave.
+
+## Step 6: Plotting the Results
+
+Finally, the script overlays the modulated waveform and the resulting demodulated waveform on a single graph to visually evaluate the system.
 
     #Plotting the modulated and demodulated signal
     plt.plot(carrier_time, am_signal, label='Modulated signal')
@@ -62,13 +66,16 @@ wave.Step 6: Plotting the ResultsFinally, the script overlays the modulated wave
     plt.legend()
     plt.show()
 
-🚀 How to Run the Script
-Install Requirements:
+# 🚀 How to Run the Script
+
+## 1. Install Requirements:
 
     pip install numpy matplotlib
     
-Save the Code: Save the full script as am_simulation.py.
+## 2. Save the Code: 
 
-Execute:
+Save the full script as am_simulation.py.
+
+## 3. Execute:
 
     python am_simulation.py
