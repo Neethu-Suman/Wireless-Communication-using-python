@@ -45,9 +45,8 @@ modulation.
 
 Demodulation is the process of extracting the original message from the modulated wave.
 
-np.abs(am_signal) acts as a full-wave rectifier (turning all negative peaks positive).
-
-Multiplying this rectified signal by a coherent cosmic wave attempts to shift the frequencies back to the baseband.
+1. np.abs(am_signal) acts as a full-wave rectifier (turning all negative peaks positive).
+2. Multiplying this rectified signal by a coherent cosmic wave attempts to shift the frequencies back to the baseband.
 
     #Demodulation of the AM signal to obtain the original message signal
     envelope_detector = np.abs(am_signal) # Using the absolute value of the AM signal
