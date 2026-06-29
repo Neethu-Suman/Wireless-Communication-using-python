@@ -47,10 +47,11 @@ Demodulation is the process of extracting the original message from the modulate
 
 1. np.abs(am_signal) acts as a full-wave rectifier (turning all negative peaks positive).
 2. Multiplying this rectified signal by a coherent cosmic wave attempts to shift the frequencies back to the baseband.
+   
 
-    #Demodulation of the AM signal to obtain the original message signal
-    envelope_detector = np.abs(am_signal) # Using the absolute value of the AM signal
-    demodulated_signal = envelope_detector*np.cos(2*np.pi*message_freq*message_time + message_phase)
+        #Demodulation of the AM signal to obtain the original message signal
+        envelope_detector = np.abs(am_signal) # Using the absolute value of the AM signal
+        demodulated_signal = envelope_detector*np.cos(2*np.pi*message_freq*message_time + message_phase)
 
 ⚠️ Note on Output: In a perfect hardware/software implementation, a Low-Pass Filter (LPF) is required right after this step to smooth out the high-frequency ripples and isolate the pure $2\text{ Hz}$ message 
 wave.Step 6: Plotting the ResultsFinally, the script overlays the modulated waveform and the resulting demodulated waveform on a single graph to visually evaluate the system.
