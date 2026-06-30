@@ -66,6 +66,9 @@ Finally, the script overlays the modulated waveform and the resulting demodulate
     plt.legend()
     plt.show()
 
+
+<img src="https://github.com/Neethu-Suman/Wireless-Communication-using-python/blob/main/Images/AM.png">
+
 # 🚀 How to Run the Script
 
 ## 1. Install Requirements:
