@@ -11,16 +11,20 @@ The script begins by importing the core libraries needed for numerical operation
     import numpy as np
     import matplotlib.pyplot as plt
 
-## Step 2: Defining the Carrier SignalThe carrier signal is the high-frequency wave ($10\text{ Hz}$) that will have its phase altered to carry the underlying data.
+## Step 2: Defining the Carrier Signal
 
-# Defining the carrier signal
-carrier_freq = 10 # carrier signal frequency
-carrier_amp = 1 # carrier signal amplitude
-carrier_phase = 0 # carrier signal phase
-carrier_time = np.linspace(0, 1, 1000) # carrier signal time
-carrier_signal = carrier_amp*np.cos(2*np.pi*carrier_freq*carrier_time + carrier_phase)
+The carrier signal is the high-frequency wave ($10\text{ Hz}$) that will have its phase altered to carry the underlying data.
 
-Step 3: Defining the Message SignalThe message signal represents our actual data or audio track. It uses a much lower frequency ($2\text{ Hz}$).Python# Defining the message signal
+    #Defining the carrier signal
+    carrier_freq = 10 # carrier signal frequency
+    carrier_amp = 1 # carrier signal amplitude
+    carrier_phase = 0 # carrier signal phase
+    carrier_time = np.linspace(0, 1, 1000) # carrier signal time
+    carrier_signal = carrier_amp*np.cos(2*np.pi*carrier_freq*carrier_time + carrier_phase)
+
+Step 3: Defining the Message Signal
+
+The message signal represents our actual data or audio track. It uses a much lower frequency ($2\text{ Hz}$).Python# Defining the message signal
 message_freq = 2 # message signal frequency
 message_amp = 1 # message signal amplitude
 message_time = np.linspace(0, 1, 1000) # message signal time
