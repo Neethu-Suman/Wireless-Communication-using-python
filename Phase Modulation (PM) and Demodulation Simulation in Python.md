@@ -2,15 +2,16 @@
 
 This contains a Python script that simulates Phase Modulation (PM) and its subsequent coherent demodulation using complex numbers in NumPy, with visualization provided by Matplotlib.
 
-📖 Step-by-Step Code Explanation
-Step 1: Importing Dependencies
+# 📖 Step-by-Step Code Explanation
+
+## Step 1: Importing Dependencies
+
 The script begins by importing the core libraries needed for numerical operations and plotting.
 
-Python
-import numpy as np
-import matplotlib.pyplot as plt
+    import numpy as np
+    import matplotlib.pyplot as plt
 
-Step 2: Defining the Carrier SignalThe carrier signal is the high-frequency wave ($10\text{ Hz}$) that will have its phase altered to carry the underlying data.
+## Step 2: Defining the Carrier SignalThe carrier signal is the high-frequency wave ($10\text{ Hz}$) that will have its phase altered to carry the underlying data.
 
 # Defining the carrier signal
 carrier_freq = 10 # carrier signal frequency
