@@ -66,6 +66,8 @@ Finally, the script plots the real part of the modulated PM signal alongside the
     plt.legend()
     plt.show()
 
+<img src="https://github.com/Neethu-Suman/Wireless-Communication-using-python/blob/main/Images/pm.png">
+
 # 🚀 How to Run the Script
 
 ## 1.	Install Requirements:
