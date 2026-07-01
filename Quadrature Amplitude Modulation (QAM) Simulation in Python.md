@@ -64,6 +64,8 @@ Finally, matplotlib maps the real component of the generated complex signal alon
     plt.legend()
     plt.show()
 
+<img src="https://github.com/Neethu-Suman/Wireless-Communication-using-python/blob/main/Images/qam.jpeg">
+
 # 🚀 How to Run the Script
 
 ## 1.	Install Requirements:
