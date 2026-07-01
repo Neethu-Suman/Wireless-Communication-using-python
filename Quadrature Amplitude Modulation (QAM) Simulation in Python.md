@@ -8,58 +8,71 @@ This contains a Python script that simulates a rudimentary digital transmission 
 
 The script begins by importing the core libraries needed for numerical operations and plotting.
 
-  import numpy as np
-  import matplotlib.pyplot as plt
+    import numpy as np
+    import matplotlib.pyplot as plt
 
 ## Step 2: Defining the Carrier Signal
 
 A standard $10\text{ Hz}$ high-frequency cosine wave is generated over a 1-second interval, sampled at $1000$ discrete data points.
 
-  #Defining the carrier signal
-  carrier_freq = 10  # carrier signal frequency in Hz
-  carrier_amp = 1  # carrier signal amplitude
-  carrier_time = np.linspace(0, 1, 1000)  # carrier signal time
-  carrier_signal = carrier_amp * np.cos(2 * np.pi * carrier_freq * carrier_time)
-Step 3: Generating the Digital Data
+    #Defining the carrier signal
+    carrier_freq = 10  # carrier signal frequency in Hz
+    carrier_amp = 1  # carrier signal amplitude
+    carrier_time = np.linspace(0, 1, 1000)  # carrier signal time
+    carrier_signal = carrier_amp * np.cos(2 * np.pi * carrier_freq * carrier_time)
+
+## Step 3: Generating the Digital Data
+
 The script creates a random 8-bit stream of 0s and 1s representing digital data. It then reshapes this flat array into a $2 \times 4$ matrix, grouping data into 4 distinct transmission time blocks (columns). Row 0 controls amplitude shifting rules, while Row 1 controls phase shifting.
-Python
-# Defining the message signal
-message_binary = np.random.randint(2, size=8)  # generates a random 8-bit message signal
-message_signal = message_binary.reshape(2, 4)  # reshaping the message signal to 2x4 matrix
-Step 4: Generating the QAM Signal
+
+    #Defining the message signal
+    message_binary = np.random.randint(2, size=8)  # generates a random 8-bit message signal
+    message_signal = message_binary.reshape(2, 4)  # reshaping the message signal to 2x4 matrix
+
+## Step 4: Generating the QAM Signal
+
 An empty array of complex floats is initialized. The code loops through the 4 data segments ($0$ to $3$) to construct the modulated wave. Depending on the binary value of message_signal[0, i], a corresponding phase shift of $+\frac{\pi}{2}$ or $-\frac{\pi}{2}$ scaled by the value of message_signal[1, i] is injected into the carrier.
-Python
-# Generating the QAM signal
-qam_signal = np.zeros_like(carrier_signal, dtype=np.complex128)
-for i in range(4):
-    if message_signal[0, i] == 0:
-        qam_signal += (carrier_amp / 2) * np.cos(2 * np.pi * carrier_freq * carrier_time + (np.pi / 2) * message_signal[1, i])
-    else:
-        qam_signal += (carrier_amp / 2) * np.cos(2 * np.pi * carrier_freq * carrier_time - (np.pi / 2) * message_signal[1, i])
+
+    #Generating the QAM signal
+    qam_signal = np.zeros_like(carrier_signal, dtype=np.complex128)
+    for i in range(4):
+        if message_signal[0, i] == 0:
+            qam_signal += (carrier_amp / 2) * np.cos(2 * np.pi * carrier_freq * carrier_time + (np.pi / 2) * message_signal[1, i])
+        else:
+            qam_signal += (carrier_amp / 2) * np.cos(2 * np.pi * carrier_freq * carrier_time - (np.pi / 2) * message_signal[1, i])
+
 ⚠️ Note on Summation: Instead of mapping specific bits to distinct time intervals (e.g., bits 0–250, bits 251–500), the loop continuously accumulates (adds up) these waveforms over the entire 1-second window.
-Step 5: Demodulation Process
+
+## Step 5: Demodulation Process
+
 The script creates an array to hold the recovered bits. It parses the data in chunks of 250 index increments (corresponding to $\frac{1}{4}$ of the 1-second frame), analyzing the phase angle (np.angle) of the wave to see if it lands above $0$ to extract the original data bits for row 1.
-Python
-# Demodulation of the QAM signal
-demodulated_signal = np.zeros_like(message_signal)
-for i in range(4):
-  demodulated_signal[1, i] = int(np.mean(np.angle(qam_signal[i*250:i*250+250])) > 0)
-Step 6: Visualization
+
+    #Demodulation of the QAM signal
+    demodulated_signal = np.zeros_like(message_signal)
+    for i in range(4):
+      demodulated_signal[1, i] = int(np.mean(np.angle(qam_signal[i*250:i*250+250])) > 0)
+
+## Step 6: Visualization
+
 Finally, matplotlib maps the real component of the generated complex signal alongside the flat demodulated digital binary array using a 4-point timestamp coordinate.
-Python
-# create new time axis
-new_time = np.linspace(0, 1, 4)
-import matplotlib.pyplot as plt
-plt.plot(carrier_time, np.real(qam_signal), label='Modulated signal')
-plt.plot(new_time, demodulated_signal[1,:], label='Demodulated signal')
-plt.legend()
-plt.show()
-🚀 How to Run the Script
-1.	Install Requirements:
-Bash
-pip install numpy matplotlib
-2.	Save the Code: Save the full script as qam_simulation.py.
-3.	Execute:
-Bash
-python qam_simulation.py
+
+    #create new time axis
+    new_time = np.linspace(0, 1, 4)
+    import matplotlib.pyplot as plt
+    plt.plot(carrier_time, np.real(qam_signal), label='Modulated signal')
+    plt.plot(new_time, demodulated_signal[1,:], label='Demodulated signal')
+    plt.legend()
+    plt.show()
+
+# 🚀 How to Run the Script
+
+## 1.	Install Requirements:
+
+    pip install numpy matplotlib
+
+## 2.	Save the Code: Save the full script as qam_simulation.py.
+
+## 3.	Execute:
+
+    python qam_simulation.py
 
