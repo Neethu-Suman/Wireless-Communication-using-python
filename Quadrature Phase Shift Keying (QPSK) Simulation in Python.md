@@ -35,7 +35,13 @@ The script maps each bit into a complex exponential phasor using Euler's relatio
 
 ## Step 5: QPSK Demodulation (Decoding)
 
-To reverse the modulation, the demodulator analyzes the phase of each complex point in qpsk_signal. By extracting the mathematical angle of each coordinate (np.angle) and tracking out the index-based phase rotation offset (mod_index * i), we can accurately rebuild the original binary stream.
+To reverse the modulation, the demodulator analyzes the phase of each complex point in qpsk_signal. 
+
+**Step 5.1:** Angular Phase Extraction The receiver measures the raw spatial orientation of each incoming complex coordinate on the two-dimensional signal grid using np.angle() to determine its exact phase vector in radians.
+
+**Step 5.2:** Offset Cancellation and Normalization The code subtracts the progressive time-varying index rotation ($\frac{\pi}{4} \cdot i$) injected during modulation, then applies modulo arithmetic to wrap the remaining phase angle cleanly back into the standard geometric window of $[-\pi, \pi]$.
+
+**Step 5.3:** Threshold Decision and Bit Recovery The isolated phase angle is evaluated against a boundary of $\frac{\pi}{2}$ ($90^\circ$); angles falling closer to $0$ are decoded as a binary 0, while those flipping past the vertical axis toward $\pm\pi$ are decoded as a binary 1.
 
         #Demodulation of the QPSK signal to recover original bits
         demodulated_message = []
