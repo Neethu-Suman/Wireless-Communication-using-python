@@ -81,6 +81,13 @@ Finally, the script plots the complex QPSK points onto a 2D grid where the X-axi
         plt.legend()
         plt.show()
 
+## Output
+
+Original Message:    [1, 0, 1, 0, 1, 1, 0, 1]
+Demodulated Message: [1, 0, 1, 0, 1, 1, 0, 1]
+
+<img src="https://github.com/Neethu-Suman/Wireless-Communication-using-python/blob/main/CODES/qpsk_simulation.py">
+
 # 🚀 How to Run the Script
 
 ## 1.	Install Requirements:
