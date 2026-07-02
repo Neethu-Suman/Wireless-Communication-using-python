@@ -4,7 +4,7 @@ This contains a Python script that simulates a rudimentary digital transmission 
 
 # 📖 Step-by-Step Code Explanation
 
-## Step 1: Importing NumPy
+## Step 1: Importing Dependencies
 
 The script begins by importing the core libraries needed for numerical operations and plotting.
 
