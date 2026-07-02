@@ -84,7 +84,6 @@ Finally, the script plots the complex QPSK points onto a 2D grid where the X-axi
 ## Output
 
         Original Message:    [1, 0, 1, 0, 1, 1, 0, 1]
-        
         Demodulated Message: [1, 0, 1, 0, 1, 1, 0, 1]
 
 <img src="https://github.com/Neethu-Suman/Wireless-Communication-using-python/blob/main/Images/qpsk.jpeg">
