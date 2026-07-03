@@ -12,13 +12,13 @@ The script begins by importing numpy for efficient array computations and random
         import matplotlib.pyplot as plt
         from scipy.stats import norm
 
-Note: While scipy.stats.norm is imported, it is not explicitly used in this basic script. It is commonly included to plot the theoretical BER curve 1/2(erfc(sqrt(SNR)) for comparison.
+Note: While scipy.stats.norm is imported, it is not explicitly used in this basic script. It is commonly included to plot the theoretical BER curve ($\frac{1}{2}\text{erfc}(\sqrt{\text{SNR}})$)  for comparison.
 
 ## Step 2: Defining the Simulation Parameters
 
 We set up a simulation environment using 1 million bits to guarantee statistical accuracy. The Signal-to-Noise Ratio (SNR) is defined in decibels ($\text{dB}$) ranging from $0$ to $20\text{ dB}$, and then converted to a linear scale using the formula:
 
-        <img src= 
+
 $$\text{SNR}_{\text{linear}} = 10^{\frac{\text{SNR}_{\text{dB}}}{10}}$$
 
         #Defining the parameters
