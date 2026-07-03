@@ -70,12 +70,16 @@ Finally, the data is plotted on a logarithmic vertical axis using plt.semilogy. 
         plt.title('BER for BPSK')
         plt.grid()
         plt.show()
-🚀 How to Run the Script
-1.	Install Requirements:
-Bash
-pip install numpy matplotlib scipy
-2.	Save the Code: Save the full script as bpsk_ber_simulation.py.
-3.	Execute:
-Bash
-python bpsk_ber_simulation.py
+
+# 🚀 How to Run the Script
+
+## 1.	Install Requirements:
+        
+        pip install numpy matplotlib scipy
+
+## 2.	Save the Code: Save the full script as bpsk_ber_simulation.py.
+
+## 3.	Execute:
+
+        python bpsk_ber_simulation.py
 
