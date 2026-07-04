@@ -77,9 +77,18 @@ print("Efficiency:", efficiency)
 
 ## 🚀 How to Run the Script
 
-1. **Prerequisites:** This script relies completely on Python's built-in standard library, so no third-party installations (like `pip`) are necessary.
-2. **Save the Code:** Save the full snippet into a file named `arq_simulation.py`.
-3. **Execute:** Run the file directly via your terminal:
+1. **Prerequisites:**
+
+    This script relies completely on Python's built-in standard library, so no third-party installations (like `pip`) are necessary.
+
+2. **Save the Code:**
+
+    Save the full snippet into a file named `arq_simulation.py`.
+
+3. **Execute:**
+  
+    Run the file directly via your terminal:
+
 ```bash
 python arq_simulation.py
 
