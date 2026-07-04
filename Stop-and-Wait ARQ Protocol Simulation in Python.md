@@ -75,6 +75,111 @@ print("Efficiency:", efficiency)
 
 ---
 
+ACK received, frame 0 transmitted successfully
+NAK received, retransmitting frame 1
+NAK received, retransmitting frame 2
+ACK received, frame 3 transmitted successfully
+ACK received, frame 4 transmitted successfully
+NAK received, retransmitting frame 5
+ACK received, frame 6 transmitted successfully
+ACK received, frame 7 transmitted successfully
+ACK received, frame 8 transmitted successfully
+ACK received, frame 9 transmitted successfully
+ACK received, frame 10 transmitted successfully
+ACK received, frame 11 transmitted successfully
+ACK received, frame 12 transmitted successfully
+ACK received, frame 13 transmitted successfully
+ACK received, frame 14 transmitted successfully
+ACK received, frame 15 transmitted successfully
+ACK received, frame 16 transmitted successfully
+ACK received, frame 17 transmitted successfully
+ACK received, frame 18 transmitted successfully
+ACK received, frame 19 transmitted successfully
+ACK received, frame 20 transmitted successfully
+ACK received, frame 21 transmitted successfully
+ACK received, frame 22 transmitted successfully
+ACK received, frame 23 transmitted successfully
+ACK received, frame 24 transmitted successfully
+ACK received, frame 25 transmitted successfully
+ACK received, frame 26 transmitted successfully
+ACK received, frame 27 transmitted successfully
+ACK received, frame 28 transmitted successfully
+ACK received, frame 29 transmitted successfully
+NAK received, retransmitting frame 30
+ACK received, frame 31 transmitted successfully
+ACK received, frame 32 transmitted successfully
+NAK received, retransmitting frame 33
+ACK received, frame 34 transmitted successfully
+ACK received, frame 35 transmitted successfully
+ACK received, frame 36 transmitted successfully
+ACK received, frame 37 transmitted successfully
+ACK received, frame 38 transmitted successfully
+ACK received, frame 39 transmitted successfully
+NAK received, retransmitting frame 40
+NAK received, retransmitting frame 41
+ACK received, frame 42 transmitted successfully
+ACK received, frame 43 transmitted successfully
+ACK received, frame 44 transmitted successfully
+ACK received, frame 45 transmitted successfully
+ACK received, frame 46 transmitted successfully
+ACK received, frame 47 transmitted successfully
+ACK received, frame 48 transmitted successfully
+NAK received, retransmitting frame 49
+ACK received, frame 50 transmitted successfully
+ACK received, frame 51 transmitted successfully
+ACK received, frame 52 transmitted successfully
+ACK received, frame 53 transmitted successfully
+NAK received, retransmitting frame 54
+ACK received, frame 55 transmitted successfully
+ACK received, frame 56 transmitted successfully
+ACK received, frame 57 transmitted successfully
+ACK received, frame 58 transmitted successfully
+ACK received, frame 59 transmitted successfully
+ACK received, frame 60 transmitted successfully
+ACK received, frame 61 transmitted successfully
+ACK received, frame 62 transmitted successfully
+ACK received, frame 63 transmitted successfully
+ACK received, frame 64 transmitted successfully
+ACK received, frame 65 transmitted successfully
+ACK received, frame 66 transmitted successfully
+NAK received, retransmitting frame 67
+NAK received, retransmitting frame 68
+ACK received, frame 69 transmitted successfully
+ACK received, frame 70 transmitted successfully
+NAK received, retransmitting frame 71
+ACK received, frame 72 transmitted successfully
+ACK received, frame 73 transmitted successfully
+ACK received, frame 74 transmitted successfully
+ACK received, frame 75 transmitted successfully
+ACK received, frame 76 transmitted successfully
+NAK received, retransmitting frame 77
+ACK received, frame 78 transmitted successfully
+ACK received, frame 79 transmitted successfully
+NAK received, retransmitting frame 80
+ACK received, frame 81 transmitted successfully
+ACK received, frame 82 transmitted successfully
+NAK received, retransmitting frame 83
+ACK received, frame 84 transmitted successfully
+ACK received, frame 85 transmitted successfully
+NAK received, retransmitting frame 86
+ACK received, frame 87 transmitted successfully
+ACK received, frame 88 transmitted successfully
+ACK received, frame 89 transmitted successfully
+ACK received, frame 90 transmitted successfully
+ACK received, frame 91 transmitted successfully
+ACK received, frame 92 transmitted successfully
+ACK received, frame 93 transmitted successfully
+ACK received, frame 94 transmitted successfully
+ACK received, frame 95 transmitted successfully
+ACK received, frame 96 transmitted successfully
+ACK received, frame 97 transmitted successfully
+ACK received, frame 98 transmitted successfully
+ACK received, frame 99 transmitted successfully
+Number of transmissions: 100
+Number of errors: 16
+Efficiency: 0.84
+
+
 ## 🚀 How to Run the Script
 
 1. **Prerequisites:**
