@@ -71,6 +71,8 @@ Finally, the data is plotted on a logarithmic vertical axis using plt.semilogy. 
         plt.grid()
         plt.show()
 
+<img src="https://github.com/Neethu-Suman/Wireless-Communication-using-python/blob/main/Images/BPSK.jpeg">
+
 # 🚀 How to Run the Script
 
 ## 1.	Install Requirements:
