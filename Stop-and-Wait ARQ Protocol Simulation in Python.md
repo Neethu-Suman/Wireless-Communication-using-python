@@ -83,9 +83,11 @@ print("Efficiency:", efficiency)
 
 2. **Save the Code:**
 
-    Save the full snippet into a file named `arq_simulation.py`.
+    Save the full snippet into a file named
 
-3. **Execute:**
+   `arq_simulation.py`.
+
+4. **Execute:**
   
     Run the file directly via your terminal:
 
