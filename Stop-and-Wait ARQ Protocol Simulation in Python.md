@@ -10,11 +10,9 @@ In computer networks, the Stop-and-Wait ARQ protocol ensures reliable data trans
 * **ACK (Acknowledgement):** Signals that the frame arrived safely; the sender can move to the next frame.
 * **NAK (Negative Acknowledgement):** Signals that the frame was corrupted or lost; the sender must retransmit the same frame.
 
----
+# 📖 Step-by-Step Code Explanation
 
-## 📖 Step-by-Step Code Explanation
-
-### Step 1: Importing Dependencies
+## Step 1: Importing Dependencies
 
 The script begins by importing the native Python `random` module, which is used to mimic the unpredictable nature of network channel noise.
 
