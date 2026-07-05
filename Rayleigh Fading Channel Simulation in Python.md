@@ -27,11 +27,11 @@ import numpy as np
 
 ### Step 2: Defining Channel Parameters
 
-Next, we define our simulation constants. We set the total number of data points to generate ($1000$) and set the statistical scale parameter ($\sigma = 1$), which dictates the peak amplitude dispersion of the fading environment.
+Next, we define our simulation constants. We set the total number of data points to generate ($5$) and set the statistical scale parameter ($\sigma = 1$), which dictates the peak amplitude dispersion of the fading environment.
 
 ```python
 # Number of samples
-n_samples = 1000
+n_samples = 5
 # Scale parameter for the Rayleigh distribution
 scale = 1
 
@@ -57,6 +57,8 @@ print(rayleigh_samples)
 ```
 
 ---
+
+[1.73657908 0.63855817 0.42353736 0.91408733 0.82422608]
 
 ## 🚀 How to Run the Script
 
