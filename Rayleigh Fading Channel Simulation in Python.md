@@ -58,6 +58,7 @@ print(rayleigh_samples)
 
 ---
 
+## Output
 [1.73657908 0.63855817 0.42353736 0.91408733 0.82422608]
 
 ## 🚀 How to Run the Script
