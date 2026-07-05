@@ -12,7 +12,6 @@ $$f(x; \sigma) = \frac{x}{\sigma^2} e^{-\frac{x^2}{2\sigma^2}}, \quad x \ge 0$$
 
 Where $\sigma$ is the scale parameter representing the root-mean-square (RMS) value of the received components.
 
----
 
 ## 📖 Step-by-Step Code Explanation
 
@@ -53,12 +52,10 @@ Finally, the generated array containing the $1000$ amplitude scaling factors is 
 
 ```python
 print(rayleigh_samples)
-
 ```
 
----
-
 ## Output
+
 [1.73657908 0.63855817 0.42353736 0.91408733 0.82422608]
 
 ## 🚀 How to Run the Script
