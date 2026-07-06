@@ -11,7 +11,7 @@ The distribution transitions based on the strength of the direct path:
 * If the direct path is exceptionally strong, the distribution resembles a Gaussian/Normal distribution.
 * If the direct path fades to zero, the channel simplifies directly into a **Rayleigh distribution**.
 
----
+
 
 ## 📖 Step-by-Step Code Explanation
 
@@ -59,19 +59,26 @@ plt.show()
 
 ```
 
----
 
 ## 🚀 How to Run the Script
 
 1. **Install Requirements:**
+
 ```bash
 pip install numpy scipy matplotlib
 
 ```
 
+2. **Save the Code:**
 
-2. **Save the Code:** Save the full snippet into a file named `rician_simulation.py`.
-3. **Execute:** Run the file directly via your terminal:
+   Save the full snippet into a file named
+
+   `rician_simulation.py`.
+
+3. **Execute:**
+  
+   Run the file directly via your terminal:
+
 ```bash
 python rician_simulation.py
 
