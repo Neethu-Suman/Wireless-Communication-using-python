@@ -59,6 +59,9 @@ plt.show()
 
 ```
 
+## Output
+
+<img src ="https://github.com/Neethu-Suman/Wireless-Communication-using-python/blob/main/Images/rician.jpeg">
 
 ## 🚀 How to Run the Script
 
