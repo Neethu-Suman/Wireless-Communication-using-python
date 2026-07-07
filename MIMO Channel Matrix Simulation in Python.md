@@ -65,7 +65,7 @@ print("MIMO Channel Matrix: ", H)
 ## Output
 
 MIMO Channel Matrix:  [[-0.47772002  0.64826043 -0.12883684  0.15489875]
- [-1.89634973 -0.61273039  0.95666314 -0.53427743]]
+                      [-1.89634973 -0.61273039  0.95666314 -0.53427743]]
 
 ## 🚀 How to Run the Script
 
@@ -76,8 +76,13 @@ pip install numpy
 ```
 
 
-2. **Save the Code:** Save the full snippet into a file named `mimo_simulation.py`.
-3. **Execute:** Run the file directly via your terminal:
+2. **Save the Code:**
+
+Save the full snippet into a file named `mimo_simulation.py`.
+
+3. **Execute:**
+
+Run the file directly via your terminal:
 ```bash
 python mimo_simulation.py
 
