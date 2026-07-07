@@ -78,7 +78,9 @@ pip install numpy
 
 2. **Save the Code:**
 
-Save the full snippet into a file named `mimo_simulation.py`.
+Save the full snippet into a file named 
+
+`mimo_simulation.py`.
 
 3. **Execute:**
 
