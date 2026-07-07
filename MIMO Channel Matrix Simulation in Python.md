@@ -80,7 +80,7 @@ pip install numpy
 
 Save the full snippet into a file named 
 
-`mimo_simulation.py`.
+    `mimo_simulation.py`.
 
 3. **Execute:**
 
