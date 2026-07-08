@@ -14,7 +14,6 @@ e^{j2\pi\sin(\theta)} \\
 \vdots \\ 
 e^{j(N_T-1)\pi\sin(\theta)} \end{bmatrix}$$
 
----
 
 ## 📖 Step-by-Step Code Explanation
 
