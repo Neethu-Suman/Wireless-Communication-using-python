@@ -8,7 +8,11 @@ Beamforming is a signal processing technique used in sensor and antenna arrays t
 
 For a linear antenna array with uniform element spacing of half-wavelength ($d = \frac{\lambda}{2}$), the steering or beamforming vector $w$ needed to direct a beam toward an Angle of Arrival/Departure ($\theta$) is mathematically modeled as:
 
-$$w = \begin{bmatrix} 1 \\ e^{j\pi\sin(\theta)} \\ e^{j2\pi\sin(\theta)} \\ \vdots \\ e^{j(N_T-1)\pi\sin(\theta)} \end{bmatrix}$$
+$$w = \begin{bmatrix} 1 \\ 
+e^{j\pi\sin(\theta)} \\ 
+e^{j2\pi\sin(\theta)} \\ 
+\vdots \\ 
+e^{j(N_T-1)\pi\sin(\theta)} \end{bmatrix}$$
 
 ---
 
