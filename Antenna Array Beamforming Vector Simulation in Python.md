@@ -80,8 +80,14 @@ pip install numpy
 ```
 
 
-2. **Save the Code:** Save the full snippet into a file named `beamforming_simulation.py`.
+2. **Save the Code:**
+
+   Save the full snippet into a file named
+
+           `beamforming_simulation.py`.
+
 3. **Execute:** Run the file directly via your terminal:
+
 ```bash
 python beamforming_simulation.py
 
