@@ -66,7 +66,10 @@ print("Beamforming Vector: ", w)
 
 ```
 
----
+## Output
+
+    Beamforming Vector:  
+      [ 1.        +0.j         -0.60569987+0.7956932j  -0.26625534-0.96390253j  0.92824152+0.37197807j]
 
 ## 🚀 How to Run the Script
 
