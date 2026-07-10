@@ -4,6 +4,7 @@
 4. Quadrature Phase Shift Keying (QPSK) Simulation
 5. BPSK Bit Error Rate (BER) Simulation
 6. Stop-and-Wait ARQ Protocol Simulation
-7. Rician Fading Channel Simulation
-8. Antenna Array Beamforming Vector Simulation
-9. Antenna Diversity Combining Simulation
+7. Rayleigh Fading Channel Simulation 
+8. Rician Fading Channel Simulation
+9. Antenna Array Beamforming Vector Simulation
+10. Antenna Diversity Combining Simulation
