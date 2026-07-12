@@ -1,0 +1,94 @@
+# MIMO Diversity Gain Simulation in Python
+
+This repository contains a Python script that estimates a metrics-based value related to **Diversity Gain** in a Multiple-Input Multiple-Output (MIMO) wireless communication system using **NumPy**.
+
+## 📌 Project Overview
+
+In wireless communications, **diversity** is used to combat fading by providing the receiver with multiple independent copies of the transmitted signal. A MIMO system with $N_T$ transmit antennas and $N_R$ receive antennas creates a channel matrix $H$ containing $N_R \times N_T$ independent path combinations.
+
+By tracking the channel matrix and its spatial correlation ($H H^\dagger$), systems can evaluate how effectively they can mitigate deep signal fades.
+
+---
+
+## 📖 Step-by-Step Code Explanation
+
+### Step 1: Importing Dependencies
+
+The script starts by importing `numpy` to handle matrix configurations and mathematical operators. It also imports specialized algebraic and logarithmic operations (`det`, `log2`) from libraries, though they are kept as placeholders for future capacity extensions.
+
+```python
+import numpy as np
+from numpy.linalg import det
+from math import log2
+
+```
+
+### Step 2: Setting Antenna Array Configurations
+
+The parameters define the dimensions of the simulated radio hardware. This sets up a MIMO link consisting of $4$ transmit antennas ($n_t = 4$) and $2$ receive antennas ($n_r = 2$).
+
+```python
+# Number of transmit antennas
+n_t = 4
+# Number of receive antennas
+n_r = 2
+
+```
+
+### Step 3: Generating the Complex MIMO Channel Matrix
+
+The script constructs the channel matrix $H$ with dimensions $2 \times 4$ (Receive Antennas $\times$ Transmit Antennas). By adding a real normal distribution to an imaginary normal distribution (`1j * np.random.randn(...)`), it captures both the amplitude scaling and phase shifts of a Rayleigh fading environment.
+
+```python
+# Generating a random MIMO channel matrix
+H = np.random.randn(n_r, n_t) + 1j*np.random.randn(n_r, n_t)
+
+```
+
+### Step 4: Normalizing Noise and Signal-to-Noise Ratio (SNR)
+
+The script fixes a reference noise floor power of $N_0 = 1$. It then computes a specialized channel-dependent reference SNR value (`SNR_0`) by scaling the noise against the mathematical trace of the channel's spatial correlation matrix ($H H^\dagger$, where `.conj().T` calculates the conjugate transpose).
+
+```python
+# Noise power
+N0 = 1
+# Diversity gain
+SNR_0 = N0/np.trace(H @ H.conj().T)
+
+```
+
+### Step 5: Computing the Diversity Gain Metric
+
+Using the calculated channel conditions and antenna dimensions, the script applies an empirical scaling formula to isolate a target value representing the system's diversity performance advantages (`G_d`).
+
+```python
+G_d = 1/(1 + (1 - 1/n_r) * SNR_0)
+
+```
+
+### Step 6: Printing the Output
+
+Finally, the resulting diversity gain metric is output directly to the terminal console.
+
+```python
+print("Diversity gain:", G_d)
+
+```
+
+---
+
+## 🚀 How to Run the Script
+
+1. **Install Requirements:**
+```bash
+pip install numpy
+
+```
+
+
+2. **Save the Code:** Save the full snippet into a file named `mimo_diversity.py`.
+3. **Execute:** Run the file directly via your terminal:
+```bash
+python mimo_diversity.py
+
+```
