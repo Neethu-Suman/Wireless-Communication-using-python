@@ -1,0 +1,100 @@
+# Ad hoc On-Demand Distance Vector (AODV) Simulation in Python
+
+This repository contains a simple Python script that uses **SimPy** to simulate the core operational cycle of the **Ad hoc On-Demand Distance Vector (AODV)** routing protocol in a discrete-event simulation environment.
+
+## 📌 Project Overview
+
+AODV is a reactive routing protocol designed for mobile ad hoc networks (MANETs). "Reactive" means that it does not maintain active routing paths for all destinations at all times; instead, it establishes routes on-demand when a node needs to send data.
+
+This simulation models a simplified, cyclic view of a node's primary networking activities:
+
+1. Periodic background **routing table maintenance**.
+2. **Route discovery mechanisms** (broadcasting route requests).
+3. **Data packet transmission** once lines are established.
+
+---
+
+## 📖 Step-by-Step Code Explanation
+
+### Step 1: Importing SimPy
+
+The script begins by importing `simpy`. SimPy is a process-based discrete-event simulation framework in Python where active components are modeled using Python generator functions.
+
+```python
+import simpy
+
+```
+
+### Step 2: Defining the AODV Blueprint Class
+
+We create an object-oriented structure to represent our protocol logic. In the constructor (`__init__`), the script registers the simulation environment reference and immediately binds a process runner loop (`self.run()`) into SimPy's scheduler ecosystem.
+
+```python
+class AODV(object):
+    def __init__(self, env):
+        self.env = env
+        # Start the run process everytime an instance is created.
+        self.action = env.process(self.run())
+
+```
+
+### Step 3: Engineering the State Machine Loop
+
+The `run` method forms the backbone of our simulated protocol behavior using an infinite `while True` loop. SimPy models the passage of time using the `yield env.timeout(duration)` expression.
+
+```python
+    def run(self):
+        while True:
+            # Routing table update process
+            yield self.env.timeout(1)
+            print("Updating routing table at time {}".format(self.env.now))
+
+            # Route discovery process
+            yield self.env.timeout(2)
+            print("Starting route discovery at time {}".format(self.env.now))
+
+            # Sending data packets
+            yield self.env.timeout(1)
+            print("Sending data packets at time {}".format(self.env.now))
+
+```
+
+**Timeline Breakdown per Loop Iteration:**
+
+* **$t = 0 \rightarrow 1$ second:** The process sleeps for 1 second. At $t = 1$, it wakes up and logs the routing table update.
+* **$t = 1 \rightarrow 3$ seconds:** The process pauses for a 2-second interval to handle route discovery delays. At $t = 3$, it executes the discovery log.
+* **$t = 3 \rightarrow 4$ seconds:** The process waits 1 final second to transmit data streams. At $t = 4$, it logs the data packet delivery event.
+* **Cycle Reset:** The loop resets immediately at $t = 4$, scheduling the next round of table updates to hit at $t = 5$.
+
+### Step 4: Environment Instantiation & Execution
+
+Finally, the driver block initializes the master timeline engine (`simpy.Environment()`), registers our AODV node tracking instance, and dictates a simulation boundary constraint (`until=10`) to gracefully stop execution after 10 virtual seconds pass.
+
+```python
+# Create the simulation environment
+env = simpy.Environment()
+# Start the AODV process
+aodv = AODV(env)
+# Run the simulation
+env.run(until=10)
+
+```
+
+---
+
+## 🚀 How to Run the Script
+
+1. **Install Requirements:**
+Make sure you install the `simpy` framework prior to execution:
+```bash
+pip install simpy
+
+```
+
+
+2. **Save the Code:** Save the full snippet into a file named `aodv_simulation.py`.
+3. **Execute:** Run the file directly via your terminal:
+```bash
+python aodv_simulation.py
+
+```
