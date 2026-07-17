@@ -1,0 +1,93 @@
+# Automatic Modulation Classification using K-Nearest Neighbors (KNN)
+
+This repository contains a Python script that demonstrates how to implement a basic **Automatic Modulation Classification (AMC)** workflow using the **K-Nearest Neighbors (KNN)** algorithm from the `scikit-learn` library.
+
+## 📌 Project Overview
+
+In cognitive radio networks and electronic warfare, identifying the modulation type of a received signal without prior communication parameters is highly critical. This process is called Automatic Modulation Classification.
+
+This script sets up a mock machine learning framework to classify signals into one of five digital modulation types based on their raw feature dimensions (such as In-phase and Quadrature signal characteristics):
+
+* **BPSK / QPSK / 8PSK** (Phase Shift Keying types)
+* **16QAM / 64QAM** (Quadrature Amplitude Modulation types)
+
+---
+
+## 📖 Step-by-Step Code Explanation
+
+### Step 1: Importing Dependencies
+
+The script begins by importing the machine learning modules from `scikit-learn`—specifically the `KNeighborsClassifier` for modeling and `train_test_split` for dataset partitioning. It also brings in `numpy` to generate synthetic signal metrics.
+
+```python
+# Import necessary libraries
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+import numpy as np
+
+```
+
+### Step 2: Generating Synthetic Signal Data
+
+To simulate a radio environment, the script maps out 5 distinct target modulation labels. It creates a dataset (`data`) of $1000$ points, each containing $2$ feature attributes (representing IQ components or signal statistics). It then randomly pairs these points with target classification indices from $0$ to $4$ (`labels`).
+
+```python
+# Generate dataset of known modulations
+modulation_types = ["BPSK", "QPSK", "8PSK", "16QAM", "64QAM"]
+data = np.random.randn(1000, 2)  # Generate random data
+labels = np.random.randint(0, len(modulation_types), size=1000)  # Generate random labels
+
+```
+
+### Step 3: Splitting the Dataset
+
+To properly evaluate model performance without data leakage, `train_test_split` partitions the array stack. It leaves **80%** of the data for model training (`X_train`) and holds out the remaining **20%** (`test_size=0.2`) as a completely unseen test subset (`X_test`).
+
+```python
+# Split dataset into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(data, labels, test_size=0.2)
+
+```
+
+### Step 4: Training the KNN Classifier
+
+An instance of the K-Nearest Neighbors classifier is instantiated, configured to analyze the $3$ closest data clusters (`n_neighbors=3`). The `.fit()` function feeds the training features and their corresponding labels into the model, mapping out spatial boundaries.
+
+```python
+# Train the model
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train, y_train)
+
+```
+
+### Step 5: Evaluating Classification Accuracy
+
+Finally, the script tests how well the trained KNN algorithm can predict the modulation signatures on the remaining test subset. The `.score()` function returns a mean accuracy index (ranging from $0.0$ to $1.0$), which is printed to the terminal console.
+
+```python
+# Test the model
+accuracy = knn.score(X_test, y_test)
+print("Accuracy:", accuracy)
+
+```
+
+> 💡 **Technical Note:** Because the data and labels are generated entirely at random, the resulting classification accuracy will hover near **20%** (a baseline 1-in-5 random guess probability). In a real deployment, you would replace the random distributions with actual measured I/Q signal properties to achieve high-accuracy classifications.
+
+---
+
+## 🚀 How to Run the Script
+
+1. **Install Requirements:**
+Make sure to install the machine learning dependencies before executing the script:
+```bash
+pip install numpy scikit-learn
+
+```
+
+
+2. **Save the Code:** Save the full code block into a file named `modulation_classifier.py`.
+3. **Execute:** Run the file directly via your terminal window:
+```bash
+python modulation_classifier.py
+
+```
