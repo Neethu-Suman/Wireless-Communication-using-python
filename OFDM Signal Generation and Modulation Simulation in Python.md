@@ -1,0 +1,101 @@
+# OFDM Signal Generation and Modulation Simulation in Python
+
+This repository contains a Python script that simulates the foundational signal processing pipeline of an **Orthogonal Frequency Division Multiplexing (OFDM)** transmitter using **NumPy**.
+
+## 📌 Project Overview
+
+OFDM is a multi-carrier digital modulation method used widely in modern high-speed communications, including Wi-Fi (802.11), 4G LTE, and 5G. It splits a single high-rate data stream into multiple closely spaced, orthogonal low-rate subcarriers.
+
+This script demonstrates a basic structural workflow of an OFDM system transmitter:
+
+1. **Binary Data Generation:** Creating a raw bitstream.
+2. **Zero Padding & Reshaping:** Formatting the array into structural blocks matching the subcarrier dimensions.
+3. **Frequency-Domain Mapping:** Splitting components using the Fast Fourier Transform (FFT).
+4. **Time-Domain Transformation:** Converting the frequency subcarriers into a transmittable time-domain signal using the Inverse Fast Fourier Transform (IFFT).
+
+---
+
+## 📖 Step-by-Step Code Explanation
+
+### Step 1: Data Generation
+
+The script begins by importing `numpy` and generating a synthetic stream of $1000$ random binary bits (`0`s and `1`s) using `np.random.randint`.
+
+```python
+import numpy as np
+# Generate a random binary data stream with a length of 1000
+data = np.random.randint(0, 2, 1000)
+
+```
+
+### Step 2: Boundary Padding
+
+An OFDM framework processes data in fixed block matrices. Here, each symbol block requires exactly $64 \times 16 = 1024$ data points. The script calculates how many bits the current $1000$-bit stream falls short of a clean $1024$ multiplier and appends trailing zeros using `np.pad`.
+
+```python
+# Pad the data with zeros to make its length a multiple of 64 * 16
+padding = (64 * 16) - (len(data) % (64 * 16))
+data = np.pad(data, (0, padding), mode='constant')
+
+```
+
+### Step 3: Array Reshaping
+
+Once padded to a valid size, the flat 1D array is reshaped into a 2D matrix where each row represents a complete block of $1024$ bits prepared for the modulation pipeline.
+
+```python
+# Reshaping the data into a 2D array with 64 rows and 16 columns
+data = data.reshape((-1, 64 * 16))
+
+```
+
+### Step 4: Subcarrier Mapping & FFT Processing
+
+An empty 3D complex array is initialized to hold the modulated symbols. The script loops through each data block, reshapes it into a $64 \times 16$ grid, and computes the Fast Fourier Transform (`np.fft.fft`) across the horizontal axis (`axis=1`). This maps the bits out into orthogonal frequency subcarrier allocations.
+
+```python
+# Perform OFDM modulation on the data
+# This example uses 64 subcarriers and a cyclic prefix of 16 samples
+ofdm_symbols = np.zeros((64, data.shape[0], 16), dtype=complex)
+for i in range(data.shape[0]):
+    ofdm_symbols[:, i, :] = np.fft.fft(data[i, :].reshape((64, 16)), axis=1)
+
+```
+
+### Step 5: Time-Domain Transformation (IFFT)
+
+In a standard hardware transmitter, frequency coefficients cannot be broadcast directly over the air. The script executes the Inverse Fast Fourier Transform (`np.fft.ifft`) along the columns (`axis=2`) to convert the orthogonal frequency components into a true time-domain wave signal.
+
+```python
+# Perform the inverse FFT on the OFDM symbols to obtain the time domain signal
+ofdm_signal = np.fft.ifft(ofdm_symbols, axis=2)
+
+```
+
+### Step 6: Printing the Output
+
+Finally, the resulting complex time-domain array (`ofdm_signal`) is output directly to the terminal console window.
+
+```python
+print(ofdm_signal)
+
+```
+
+---
+
+## 🚀 How to Run the Script
+
+1. **Install Requirements:**
+Make sure you have `numpy` installed:
+```bash
+pip install numpy
+
+```
+
+
+2. **Save the Code:** Copy the full Python snippet into a local file named `ofdm_simulation.py`.
+3. **Execute:** Run the script using your terminal:
+```bash
+python ofdm_simulation.py
+
+```
